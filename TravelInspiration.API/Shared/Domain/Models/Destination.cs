@@ -1,4 +1,4 @@
-﻿namespace TravelInspiration.API.Shared.Domain.Models;
+﻿  namespace TravelInspiration.API.Shared.Domain.Models;
 
 public class Destination(string name)
 {
