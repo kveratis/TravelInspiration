@@ -1,0 +1,15 @@
+Adding Entity Framework
+
+In Package Manager Console, with API project referenced as Default Project.
+
+install-package microsoft.entityframeworkcore.sqlserver
+install-package microsoft.entityframeworkcore.tools
+
+add-migration InitialMigration -namespace TravelInspiration.API.Shared.Persistence.Migrations -project TravelInspiration.API -outputdir Shared/Persistence/Migrations
+update-database
+
+install-package Automapper
+
+## Force reset of database (loss of data)
+Update-database -Migration:0
+Update-database

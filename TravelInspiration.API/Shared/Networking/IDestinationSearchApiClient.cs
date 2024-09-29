@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using TravelInspiration.API.Shared.Domain.Models;
+﻿using TravelInspiration.API.Shared.Domain.Models;
 
-namespace TravelInspiration.API.Shared.Networking
+namespace TravelInspiration.API.Shared.Networking;
+
+public interface IDestinationSearchApiClient
 {
-    public interface IDestinationSearchApiClient
-    {
-        Task<IEnumerable<Destination>> GetDestinationsAsync(string? searchFor, CancellationToken? cancellationToken);
-    }
+    Task<IEnumerable<Destination>> GetDestinationsAsync(string? searchFor, CancellationToken? cancellationToken);
 }

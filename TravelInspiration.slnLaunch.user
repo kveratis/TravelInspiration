@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "TravelInspiration.API\\TravelInspiration.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "ExternalDestinationSearch.API\\ExternalDestinationSearch.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
