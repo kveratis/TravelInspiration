@@ -13,3 +13,5 @@ install-package Automapper
 ## Force reset of database (loss of data)
 Update-database -Migration:0
 Update-database
+
+install-package MediatR
