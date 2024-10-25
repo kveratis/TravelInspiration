@@ -15,3 +15,5 @@ Update-database -Migration:0
 Update-database
 
 install-package MediatR
+install-package FluentValidation
+install-package FluentValidation.DependencyInjectionExtensions

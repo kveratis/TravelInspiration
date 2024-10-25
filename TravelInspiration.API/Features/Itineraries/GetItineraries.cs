@@ -32,6 +32,7 @@ public sealed class GetItineraries : ISlice
         {
             return Results.Ok(_mapper.Map<IEnumerable<ItineraryDto>>(
                 await _dbContext.Itineraries
+                    .AsNoTracking()
                     .Where(i =>
                         request.SearchFor == null ||
                         i.Name.Contains(request.SearchFor) ||

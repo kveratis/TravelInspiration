@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using TravelInspiration.API.Shared.Behaviors;
 using TravelInspiration.API.Shared.Metrics;
@@ -20,8 +21,10 @@ public static class ServiceCollectionExtensions
         {
             cfg.RegisterServicesFromAssemblies(currentAssembly)
                 .AddOpenRequestPreProcessor(typeof(LoggingBehavior<>))
+                .AddOpenBehavior(typeof(ModelValidationBehavior<,>))  
                 .AddOpenBehavior(typeof(HandlerPerformanceMetricBehavior<,>));
         });
+        services.AddValidatorsFromAssembly(currentAssembly);
         // We are counting milliseconds elapsed across requests so it needs a singleton lifetime
         services.AddSingleton<HandlerPerformanceMetric>();
         return services;
