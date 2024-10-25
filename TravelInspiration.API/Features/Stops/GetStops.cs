@@ -13,15 +13,8 @@ public sealed class GetStops : ISlice
     {
         endpointRouteBuilder.MapGet("api/itineraries/{itineraryId:int}/stops",
             (int itineraryId,
-                ILoggerFactory logger,
                 IMediator mediator,
-                CancellationToken cancellationToken) =>
-            {
-                logger.CreateLogger("EndpointHandlers")
-                    .LogInformation("GetStops feature called.");
-
-                return mediator.Send(new GetStopsQuery(itineraryId), cancellationToken);
-            });
+                CancellationToken cancellationToken) => mediator.Send(new GetStopsQuery(itineraryId), cancellationToken));
     }
 
     public sealed record GetStopsQuery(int ItineraryId) : IRequest<IResult>;

@@ -15,14 +15,8 @@ public sealed class GetItineraries : ISlice
             (string? searchFor,
                 ILoggerFactory logger,
                 IMediator mediator,
-                CancellationToken cancellationToken) =>
-            {
-                logger.CreateLogger("EndpointHandlers")
-                    .LogInformation("GetItineraries feature called.");
-
-                return mediator.Send(
-                    new GetItinerariesQuery(searchFor), cancellationToken);
-            });
+                CancellationToken cancellationToken) => mediator.Send(
+                new GetItinerariesQuery(searchFor), cancellationToken));
     }
 
     public sealed record GetItinerariesQuery(string? SearchFor) : IRequest<IResult>;
